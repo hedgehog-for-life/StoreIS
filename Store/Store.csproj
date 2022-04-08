@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.3.1.21\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.21\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30034022-4F06-4782-B560-BEC1D1C8D770}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Store</RootNamespace>
+    <AssemblyName>Store</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.2.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>..\packages\BCrypt.Net-Next.4.0.2\lib\net472\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.3.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.11.4.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.11.4\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.1.11\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.1.11\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.21\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.21\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.3.1.21\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.3.1.21\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.21\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.21\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.21.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.21\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.EntityFrameworkCore, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.EntityFrameworkCore.8.0.22\lib\netstandard2.0\MySql.Data.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2016.1.0\lib\net40\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SautinSoft.Document">
+      <HintPath>..\..\..\..\OneDrive\Рабочий стол\study\DB Course Work\Document .Net (5.4.12.1)\Bin\.NET Framework 4.7.2\SautinSoft.Document.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Ubiety.Dns.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.22\lib\net452\Ubiety.Dns.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.22\lib\net452\Zstandard.Net.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AddressController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CityController.cs" />
+    <Compile Include="Controllers\CodeController.cs" />
+    <Compile Include="Controllers\CollectionController.cs" />
+    <Compile Include="Controllers\CountryController.cs" />
+    <Compile Include="Controllers\EmploymentAppController.cs" />
+    <Compile Include="Controllers\GoodCollectionController.cs" />
+    <Compile Include="Controllers\GoodController.cs" />
+    <Compile Include="Controllers\GoodPromotionController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderGoodController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\PromotionController.cs" />
+    <Compile Include="Controllers\QThemeController.cs" />
+    <Compile Include="Controllers\QuestionController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\StreetController.cs" />
+    <Compile Include="Controllers\UserRoleController.cs" />
+    <Compile Include="Controllers\WriteOffController.cs" />
+    <Compile Include="Controllers\WriteOffReasonController.cs" />
+    <Compile Include="DataBase\Entities\Address.cs" />
+    <Compile Include="DataBase\Entities\Category.cs" />
+    <Compile Include="DataBase\Entities\City.cs" />
+    <Compile Include="DataBase\Entities\Code.cs" />
+    <Compile Include="DataBase\Entities\Collection.cs" />
+    <Compile Include="DataBase\Entities\Country.cs" />
+    <Compile Include="DataBase\Entities\Efmigrationshistory.cs" />
+    <Compile Include="DataBase\Entities\EmploymentApp.cs" />
+    <Compile Include="DataBase\Entities\Good.cs" />
+    <Compile Include="DataBase\Entities\GoodCollection.cs" />
+    <Compile Include="DataBase\Entities\GoodPromotion.cs" />
+    <Compile Include="DataBase\Entities\Order.cs" />
+    <Compile Include="DataBase\Entities\OrderGood.cs" />
+    <Compile Include="DataBase\Entities\Person.cs" />
+    <Compile Include="DataBase\Entities\Promotion.cs" />
+    <Compile Include="DataBase\Entities\QTheme.cs" />
+    <Compile Include="DataBase\Entities\Question.cs" />
+    <Compile Include="DataBase\Entities\Region.cs" />
+    <Compile Include="DataBase\Entities\Review.cs" />
+    <Compile Include="DataBase\Entities\ShoppingCart.cs" />
+    <Compile Include="DataBase\Entities\Street.cs" />
+    <Compile Include="DataBase\Context\stuff_shopContext.cs" />
+    <Compile Include="DataBase\Entities\UserRole.cs" />
+    <Compile Include="DataBase\Entities\WriteOff.cs" />
+    <Compile Include="DataBase\Entities\WriteOffReason.cs" />
+    <Compile Include="DataBase\Interfaces\IConnectorRepository.cs" />
+    <Compile Include="DataBase\Interfaces\IEntityRepository.cs" />
+    <Compile Include="DataBase\Interfaces\IRepository.cs" />
+    <Compile Include="DataBase\Repositories\AddressRepository.cs" />
+    <Compile Include="DataBase\Repositories\CategoryRepository.cs" />
+    <Compile Include="DataBase\Repositories\CityRepository.cs" />
+    <Compile Include="DataBase\Repositories\CodeRepository.cs" />
+    <Compile Include="DataBase\Repositories\CollectionRepository.cs" />
+    <Compile Include="DataBase\Repositories\CountryRepository.cs" />
+    <Compile Include="DataBase\Repositories\DbRepository.cs" />
+    <Compile Include="DataBase\Repositories\EmploymentAppRepository.cs" />
+    <Compile Include="DataBase\Repositories\GoodCollectionRepository.cs" />
+    <Compile Include="DataBase\Repositories\GoodPromotionRepository.cs" />
+    <Compile Include="DataBase\Repositories\GoodRepository.cs" />
+    <Compile Include="DataBase\Repositories\OrderGoodRepository.cs" />
+    <Compile Include="DataBase\Repositories\OrderRepository.cs" />
+    <Compile Include="DataBase\Repositories\PersonRepository.cs" />
+    <Compile Include="DataBase\Repositories\PromotionRepository.cs" />
+    <Compile Include="DataBase\Repositories\QThemeRepository.cs" />
+    <Compile Include="DataBase\Repositories\QuestionRepository.cs" />
+    <Compile Include="DataBase\Repositories\RegionRepository.cs" />
+    <Compile Include="DataBase\Repositories\ReviewRepository.cs" />
+    <Compile Include="DataBase\Repositories\ShoppingCartRepository.cs" />
+    <Compile Include="DataBase\Repositories\StreetRepository.cs" />
+    <Compile Include="DataBase\Repositories\UserRoleRepository.cs" />
+    <Compile Include="DataBase\Repositories\WriteOffReasonRepository.cs" />
+    <Compile Include="DataBase\Repositories\WriteOffRepository.cs" />
+    <Compile Include="Validators\DateTimeValidator.cs" />
+    <Compile Include="Validators\DigitClassesValidator.cs" />
+    <Compile Include="Validators\InputValidator.cs" />
+    <Compile Include="Validators\StringValidator.cs" />
+    <Compile Include="Windows\ErrorWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ErrorWindow.Designer.cs">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForAdmin\GoodInfoWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForAdmin\GoodInfoWindow.Designer.cs">
+      <DependentUpon>GoodInfoWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForConsultant\ConsultantWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForConsultant\ConsultantWindow.Designer.cs">
+      <DependentUpon>ConsultantWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForConsultant\UserInfoWIndow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForConsultant\UserInfoWIndow.Designer.cs">
+      <DependentUpon>UserInfoWIndow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForCourier\CourierWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForCourier\CourierWindow.Designer.cs">
+      <DependentUpon>CourierWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForHR\HRWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForHR\HRWindow.Designer.cs">
+      <DependentUpon>HRWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\CategoriesCollectionsGoodsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\CategoriesCollectionsGoodsWindow.Designer.cs">
+      <DependentUpon>CategoriesCollectionsGoodsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\ItemWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\ItemWindow.Designer.cs">
+      <DependentUpon>ItemWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\JobAppWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\JobAppWindow.Designer.cs">
+      <DependentUpon>JobAppWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\OrderFormWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\OrderFormWindow.Designer.cs">
+      <DependentUpon>OrderFormWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\OrderWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\OrderWindow.Designer.cs">
+      <DependentUpon>OrderWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\PromotionsGoodsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\PromotionsGoodsWindow.Designer.cs">
+      <DependentUpon>PromotionsGoodsWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\QuestionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\QuestionWindow.Designer.cs">
+      <DependentUpon>QuestionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\SearchResultWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\SearchResultWindow.Designer.cs">
+      <DependentUpon>SearchResultWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\ShoppingCartWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ForUser\ShoppingCartWindow.Designer.cs">
+      <DependentUpon>ShoppingCartWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ForUser\stuff_shoppContext.cs" />
+    <Compile Include="Windows\PersonInfoWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\PersonInfoWindow.Designer.cs">
+      <DependentUpon>PersonInfoWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LoginWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\.Designer.cs">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\SuccessWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SuccessWindow.Designer.cs">
+      <DependentUpon>SuccessWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Windows\ErrorWindow.resx">
+      <DependentUpon>ErrorWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForAdmin\GoodInfoWindow.resx">
+      <DependentUpon>GoodInfoWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForConsultant\ConsultantWindow.resx">
+      <DependentUpon>ConsultantWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForConsultant\UserInfoWIndow.resx">
+      <DependentUpon>UserInfoWIndow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForCourier\CourierWindow.resx">
+      <DependentUpon>CourierWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForHR\HRWindow.resx">
+      <DependentUpon>HRWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\CategoriesCollectionsGoodsWindow.resx">
+      <DependentUpon>CategoriesCollectionsGoodsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\ItemWindow.resx">
+      <DependentUpon>ItemWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\JobAppWindow.resx">
+      <DependentUpon>JobAppWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\OrderFormWindow.resx">
+      <DependentUpon>OrderFormWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\OrderWindow.resx">
+      <DependentUpon>OrderWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\PromotionsGoodsWindow.resx">
+      <DependentUpon>PromotionsGoodsWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\QuestionWindow.resx">
+      <DependentUpon>QuestionWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\SearchResultWindow.resx">
+      <DependentUpon>SearchResultWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\ForUser\ShoppingCartWindow.resx">
+      <DependentUpon>ShoppingCartWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\LoginWindow.resx">
+      <DependentUpon>LoginWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Windows\PersonInfoWindow.resx">
+      <DependentUpon>PersonInfoWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\SuccessWindow.resx">
+      <DependentUpon>SuccessWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.EmploymentApp.datasource" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.Good.datasource" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.Order.datasource" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.QTheme.datasource" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.Question.datasource" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.Review.datasource" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.WriteOff.datasource" />
+    <None Include="Properties\DataSources\Store.DataBase.Entities.WriteOffReason.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Images\GoodImages\" />
+    <Folder Include="Resources\Pdf\ResumeFiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+    <None Include="Resources\shopping-cart.png" />
+    <None Include="Resources\pdf.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\previous.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\search-interface-symbol.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\icon_sized_step2.png" />
+    <None Include="Resources\icon_sized_step1.png" />
+    <None Include="Resources\icon_sized_v2.png" />
+    <None Include="Resources\icon_sized_v3.png" />
+    <None Include="Resources\icon_sized_v2 %281%29.png" />
+    <None Include="Resources\icon_ready.png" />
+    <None Include="Resources\avatar128.png" />
+    <None Include="Resources\avatar64.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\add.png" />
+    <Content Include="Resources\Images\SystemIcons\alert.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.21\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.3.1.21\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+  </Target>
+</Project>
